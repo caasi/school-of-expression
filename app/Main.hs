@@ -1,11 +1,13 @@
 module Main where
 
+import Graphics.SOE
 import Lib
 import Shape
+import SimpleGraphics
 
 main :: IO ()
-main = do
-  let s1 = RtTriangle 3.0 4.0
-  let s2 = Polygon [(0.0, 0.0), (8.0, 0.0), (0.0, 6.0)]
-  putStrLn . show $ area s1
-  putStrLn . show $ area s2
+main = runGraphics (
+  do w <- openWindow "My First Graphics Program" (400, 400)
+     sierpinskiTri w 50 300 256
+     spaceClose w
+  )

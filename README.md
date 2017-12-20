@@ -7,9 +7,9 @@ Try to recreate everything from the book ["the Haskell School of Expression"][SO
 ## TODO
 
   * modules from every chapters
-    * [ ] A Module of Shapes: Part I
-    * [ ] Simple Graphics
-      * [ ] find a modern graphic lib
+    * [x] A Module of Shapes: Part I
+    * [x] Simple Graphics
+      * [x] `Graphics.SOE` in [HGL][HGL] is still working!
     * [ ] Shapes II: Drawing Shapes
     * [ ] Polymorphic and Higher-Order Functions
     * [ ] Shapes III: Perimeters of Shapes
@@ -30,3 +30,5 @@ Try to recreate everything from the book ["the Haskell School of Expression"][SO
     * [ ] From Performance to MIDI
     * [ ] A Tour of the PreludeList Module
     * [ ] A Tour of Haskell's Standard Type Classes
+
+[HGL]: https://hackage.haskell.org/package/HGL

@@ -1,13 +1,13 @@
 module Shape
-( Shape (Rectangle, Ellipse, RtTriangle, Polygon)
-, Radius
-, Side
-, Vertex
-, square
-, circle
-, disBetween
-, area
-) where
+  ( Shape (Rectangle, Ellipse, RtTriangle, Polygon)
+  , Radius
+  , Side
+  , Vertex
+  , square
+  , circle
+  , disBetween
+  , area
+  ) where
 
 data Shape
   = Rectangle Side Side
