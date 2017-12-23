@@ -10,7 +10,7 @@ Try to recreate everything from the book ["the Haskell School of Expression"][SO
     * [x] A Module of Shapes: Part I
     * [x] Simple Graphics
       * [x] `Graphics.SOE` in [HGL][HGL] is still working!
-    * [ ] Shapes II: Drawing Shapes
+    * [x] Shapes II: Drawing Shapes
     * [ ] Polymorphic and Higher-Order Functions
     * [ ] Shapes III: Perimeters of Shapes
     * [ ] Trees
