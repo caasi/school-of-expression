@@ -2,9 +2,10 @@ module Main where
 
 import Graphics.SOE
 import Lib
-import Shape
+--import Shape
 import SimpleGraphics
 import Draw
+import Perimeter
 
 sh1 = Rectangle 3 2
 sh2 = Ellipse 1 1.5
@@ -30,5 +31,6 @@ main :: IO ()
 main = runGraphics (
   do w <- openWindow "Drawing Shapes" (xWin, yWin)
      drawShapes w coloredCircles
+     putStrLn . show $ perimeter sh2
      spaceClose w
   )

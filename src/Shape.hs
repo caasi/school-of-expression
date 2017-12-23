@@ -5,7 +5,7 @@ module Shape
   , Vertex
   , square
   , circle
-  , disBetween
+  , distBetween
   , area
   ) where
 
@@ -46,11 +46,11 @@ area (Polygon (v1 : vs)) = polyArea vs
 
 triArea :: Vertex -> Vertex -> Vertex -> Float
 triArea v1 v2 v3 =
-  let a = disBetween v1 v2
-      b = disBetween v2 v3
-      c = disBetween v3 v1
+  let a = distBetween v1 v2
+      b = distBetween v2 v3
+      c = distBetween v3 v1
       s = (a + b + c) / 2
   in sqrt(s * (s - a) * (s - b) * (s - c))
 
-disBetween :: Vertex -> Vertex -> Float
-disBetween (x1, y1) (x2, y2) = sqrt((x2 - x1) ^ 2 + (y2 - y1) ^ 2)
+distBetween :: Vertex -> Vertex -> Float
+distBetween (x1, y1) (x2, y2) = sqrt((x2 - x1) ^ 2 + (y2 - y1) ^ 2)
