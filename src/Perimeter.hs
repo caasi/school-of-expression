@@ -18,6 +18,7 @@ perimeter (Ellipse r1 r2)
                 test x  = x > epsilon
                 sSum    = foldl (+) 0 (takeWhile test s)
             in 2 * r1 * pi * (1 - sSum)
+perimeter (Polygon vs) = foldl (+) 0 (sides vs)
 
 sides :: [Vertex] -> [Side]
 sides vs = zipWith distBetween vs (tail vs ++ [head vs])

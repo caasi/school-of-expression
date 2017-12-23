@@ -12,9 +12,9 @@ Try to recreate everything from the book ["the Haskell School of Expression"][SO
       * [x] `Graphics.SOE` in [HGL][HGL] is still working!
     * [x] Shapes II: Drawing Shapes
     * [x] Polymorphic and Higher-Order Functions
-    * [ ] Shapes III: Perimeters of Shapes
+    * [x] Shapes III: Perimeters of Shapes
     * [ ] Trees
-    * [ ] A Module of Regions
+    * [x] A Module of Regions
     * [ ] More About High-Order Functions
     * [ ] Drawing Regions
     * [ ] Proof by Induction
