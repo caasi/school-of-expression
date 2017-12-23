@@ -11,7 +11,7 @@ Try to recreate everything from the book ["the Haskell School of Expression"][SO
     * [x] Simple Graphics
       * [x] `Graphics.SOE` in [HGL][HGL] is still working!
     * [x] Shapes II: Drawing Shapes
-    * [ ] Polymorphic and Higher-Order Functions
+    * [x] Polymorphic and Higher-Order Functions
     * [ ] Shapes III: Perimeters of Shapes
     * [ ] Trees
     * [ ] A Module of Regions

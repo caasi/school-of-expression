@@ -34,8 +34,7 @@ xWin2 = xWin `div` 2
 yWin2 = yWin `div` 2
 
 transList :: [Vertex] -> [Point]
-transList [] = []
-transList (p : ps) = trans p : transList ps
+transList ps = map trans ps
 
 shapeToGraphic :: Shape -> Graphic
 shapeToGraphic (Rectangle s1 s2)
