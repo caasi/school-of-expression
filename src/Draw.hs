@@ -4,6 +4,8 @@ module Draw
   , intToFloat
   , xWin
   , yWin
+  , xWin2
+  , yWin2
   , trans
   , shapeToGraphic
   , spaceClose

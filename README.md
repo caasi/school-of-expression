@@ -16,7 +16,7 @@ Try to recreate everything from the book ["the Haskell School of Expression"][SO
     * [ ] Trees
     * [x] A Module of Regions
     * [ ] More About High-Order Functions
-    * [ ] Drawing Regions
+    * [x] Drawing Regions
     * [ ] Proof by Induction
     * [ ] Qualified Types
     * [ ] A Module of Simple Animations

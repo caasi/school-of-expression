@@ -91,6 +91,3 @@ shapeToGRegion (lx, ly) (sx, sy) s
                          )
 
 type Vector = (Float, Float)
-
-xWin2 = xWin `div` 2
-yWin2 = yWin `div` 2
