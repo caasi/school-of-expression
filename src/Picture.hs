@@ -16,6 +16,8 @@ module Picture
     )
   , regionToGRegion
   , shapeToGRegion
+  , regionToGraphic
+  , picToGraphic
   , drawRegionInWindow
   , drawPic
   , draw
@@ -34,9 +36,17 @@ data Picture
   | EmptyPic
   deriving Show
 
+regionToGraphic :: Region -> Graphic
+regionToGraphic = drawRegion . regionToGRegion
+
+picToGraphic :: Picture -> Graphic
+picToGraphic (Region c r) = withColor c (regionToGraphic r)
+picToGraphic (p1 `Over` p2) = picToGraphic p1 `overGraphic` picToGraphic p2
+picToGraphic EmptyPic = emptyGraphic
+
 drawRegionInWindow :: Window -> Color -> Region -> IO ()
 drawRegionInWindow w c r
-  = drawInWindow w (withColor c (drawRegion (regionToGRegion r)))
+  = drawInWindow w (withColor c (regionToGraphic r))
 
 drawPic :: Window -> Picture -> IO ()
 drawPic w (Region c r) = drawRegionInWindow w c r

@@ -4,6 +4,7 @@ import Graphics.SOE hiding (Region)
 import Lib
 import Draw
 import Picture
+import Animation
 
 -- user interactions
 pictToList :: Picture -> [(Color, Region)]
@@ -74,4 +75,16 @@ pic :: Picture
 pic = foldl Over EmptyPic [p1, p2, p3, p4]
 
 main :: IO ()
-main = draw2 "Picture Click Test" pic
+main = main4
+
+main1 :: IO ()
+main1 = animate "Animated Shape" (withColor Blue . shapeToGraphic . rubberBall)
+
+main2 :: IO ()
+main2 = animate "Animated Text" (text (100, 200) . tellTime)
+
+main3 :: IO ()
+main3 = animate "Animatde Region" (withColor Yellow . regionToGraphic . revolvingBall)
+
+main4 :: IO ()
+main4 = animate "Animate Picture" (picToGraphic . planets)
