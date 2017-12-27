@@ -1,10 +1,42 @@
 module Main where
 
+import System.Environment
 import Graphics.SOE hiding (Region)
-import Lib
+import SimpleGraphics
 import Draw
 import Picture
 import Animation
+
+-- chapter 3
+
+ch3_pic1 = withColor Red (ellipse (150, 150) (300, 200))
+ch3_pic2 = withColor Blue (polyline [(100, 50), (200, 50), (200, 250), (100, 250), (100, 50)])
+
+-- chapter 4
+
+sh1, sh2, sh3, sh4 :: Shape
+
+sh1 = Rectangle 3 2
+sh2 = Ellipse 1 1.5
+sh3 = RtTriangle 3 2
+sh4 = Polygon [(-2.5, 2.5), (-1.5, 2.0), (-1.1, 0.2), (-1.7, -1.0), (-3.0, 0)]
+
+shs :: ColoredShapes
+shs = [(Red, sh1), (Blue, sh2), (Yellow, sh3), (Magenta, sh4)]
+
+type ColoredShapes = [(Color, Shape)]
+
+drawShapes :: Window -> ColoredShapes -> IO ()
+drawShapes w []
+  = return ()
+drawShapes w ((c, s) : cs)
+  = do drawInWindow w (withColor c (shapeToGraphic s))
+       drawShapes w cs
+
+-- chapter 5
+
+conCircles = map circle [2.4, 2.1..0.3]
+coloredCircles = zip [Black, Blue, Green, Cyan, Red, Magenta, Yellow, White] conCircles
 
 -- user interactions
 pictToList :: Picture -> [(Color, Region)]
@@ -75,29 +107,76 @@ pic :: Picture
 pic = foldl Over EmptyPic [p1, p2, p3, p4]
 
 main :: IO ()
-main = main8
+main = do
+  args <- getArgs
+  listMain args
 
-main1 :: IO ()
-main1 = animate "Animated Shape" (withColor Blue . shapeToGraphic . rubberBall)
-
-main2 :: IO ()
-main2 = animate "Animated Text" (text (100, 200) . tellTime)
-
-main3 :: IO ()
-main3 = animate "Animatde Region" (withColor Yellow . regionToGraphic . revolvingBall)
-
-main4 :: IO ()
-main4 = animate "Animate Picture" (picToGraphic . planets)
-
-main5 :: IO ()
-main5 = animateB "Revolving Ball Behavior" revolvingBallB
-
-main6 :: IO ()
-main6 = animateB "Flashing Ball" flashingBall
-
-main7 :: IO ()
-main7 = animateB "Lots of Flashing Balls" revolvingBalls
-
-main8 :: IO ()
-main8 = do animateB "kaleido1 (close window for next demo)" kaleido1
-           animateB "kaleido2" kaleido2
+listMain :: [String] -> IO ()
+listMain []       = return ()
+listMain (n : ns) = do
+  case n of
+    "3.0" ->
+      runGraphics $
+        do w <- openWindow "My First Graphics Program" (300, 300)
+           drawInWindow w (text (100, 200) "Hello Graphics World")
+           k <- getKey w
+           closeWindow w
+    "3.1" ->
+      runGraphics $
+        do w <- openWindow "My First Graphics Program" (300, 300)
+           drawInWindow w (text (100, 200) "Hello Graphics World")
+           spaceClose w
+    "3.2" ->
+      runGraphics $
+        do w <- openWindow "Some Graphics Figures" (300, 300)
+           drawInWindow w ch3_pic1
+           drawInWindow w ch3_pic2
+           spaceClose w
+    "3.3" ->
+      runGraphics $
+        do w <- openWindow "Sierpinski's Triangle" (400, 400)
+           sierpinskiTri w 50 300 256
+           spaceClose w
+    "4.0" ->
+      runGraphics $
+        do w <- openWindow "Drawing Shapes" (xWin, yWin)
+           drawInWindow w (withColor Red (shapeToGraphic sh1))
+           drawInWindow w (withColor Blue (shapeToGraphic sh2))
+           spaceClose w
+    "4.1" ->
+      runGraphics $
+        do w <- openWindow "Drawing Shapes" (xWin, yWin)
+           drawShapes w shs
+           spaceClose w
+    "5.0" ->
+      runGraphics $
+        do w <- openWindow "Bull's Eye" (xWin, yWin)
+           drawShapes w coloredCircles
+           spaceClose w
+    "10.0" ->
+      draw "Region Test" pic3
+    "10.1" ->
+      draw2 "User Interactions" pic
+    "13.0" ->
+      animate "Animated Shape" (withColor Blue . shapeToGraphic . rubberBall)
+    "13.1" ->
+      animate "Animated Text" (text (100, 200) . tellTime)
+    "13.2" ->
+      animate "Animatde Region" (withColor Yellow . regionToGraphic . revolvingBall)
+    "13.3" ->
+      animate "Animate Picture" (picToGraphic . planets)
+    "13.4" ->
+      animateB "Revolving Ball Behavior" revolvingBallB
+    "13.5" ->
+      animateB "Flashing Ball" flashingBall
+    "13.6" ->
+      animateB "Lots of Flashing Balls" revolvingBalls
+    "13.7" ->
+      do animateB "kaleido1 (close window for next demo)" kaleido1
+         animateB "kaleido2" kaleido2
+    "kaleido1" ->
+      animateB "kaleido1" kaleido1
+    "kaleido2" ->
+      animateB "kaleido2" kaleido2
+    _ -> return ()
+  listMain ns
