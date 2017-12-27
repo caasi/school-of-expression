@@ -19,7 +19,7 @@ Try to recreate everything from the book ["the Haskell School of Expression"][SO
     * [x] Drawing Regions
     * [ ] Proof by Induction
     * [ ] Qualified Types
-    * [ ] A Module of Simple Animations
+    * [x] A Module of Simple Animations
     * [ ] Programming With Streams
     * [ ] A Module of Reactive Animations
     * [ ] Communicating With the Outside World

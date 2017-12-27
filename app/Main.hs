@@ -75,7 +75,7 @@ pic :: Picture
 pic = foldl Over EmptyPic [p1, p2, p3, p4]
 
 main :: IO ()
-main = main7
+main = main8
 
 main1 :: IO ()
 main1 = animate "Animated Shape" (withColor Blue . shapeToGraphic . rubberBall)
@@ -97,3 +97,7 @@ main6 = animateB "Flashing Ball" flashingBall
 
 main7 :: IO ()
 main7 = animateB "Lots of Flashing Balls" revolvingBalls
+
+main8 :: IO ()
+main8 = do animateB "kaleido1 (close window for next demo)" kaleido1
+           animateB "kaleido2" kaleido2
