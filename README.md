@@ -36,7 +36,7 @@ Check this issue for more information: https://github.com/xmonad/X11/issues/24
     * [ ] Programming With Streams
     * [ ] A Module of Reactive Animations
     * [ ] Communicating With the Outside World
-    * [ ] Rendering Reactive Animations
+    * [x] Rendering Reactive Animations
     * [ ] Higher-Order Types
     * [ ] An Imperative Robot Language
     * [ ] Interpreting Functional Music
