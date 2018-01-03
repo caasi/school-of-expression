@@ -6,7 +6,6 @@ import Draw (pixelToInch)
 import Animation (Time)
 import Shape
 import Picture
-import GHC.Generics (Generic)
 import Memo1
 
 infixr 1 =>>, ->>
