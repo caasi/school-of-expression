@@ -17,6 +17,12 @@ Check this issue for more information: https://github.com/xmonad/X11/issues/24
 
 [XQuartz]: https://www.xquartz.org/
 
+---
+
+A minimal `memo :: (a -> b) -> a -> b` can be found [here][Memo1.lhs].
+
+[Memo1.lhs]: https://hackage.haskell.org/package/IrrHaskell-0.2/src/Memo1.lhs
+
 ## ToDo
 
   * modules from every chapters
@@ -34,7 +40,7 @@ Check this issue for more information: https://github.com/xmonad/X11/issues/24
     * [ ] Qualified Types
     * [x] A Module of Simple Animations
     * [ ] Programming With Streams
-    * [ ] A Module of Reactive Animations
+    * [x] A Module of Reactive Animations
     * [ ] Communicating With the Outside World
     * [x] Rendering Reactive Animations
     * [ ] Higher-Order Types

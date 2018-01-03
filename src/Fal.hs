@@ -1,4 +1,3 @@
-{-# LANGUAGE TypeOperators, TypeFamilies #-}
 module Fal where
 
 import Graphics.SOE hiding (Region, Event)
@@ -8,7 +7,7 @@ import Animation (Time)
 import Shape
 import Picture
 import GHC.Generics (Generic)
-import Memo
+import Memo1
 
 infixr 1 =>>, ->>
 infixr 1 `untilB`, `switch`, `stepAccum`, `step`
@@ -135,7 +134,7 @@ Behavior fb `untilB` Event fe
                       Just (Behavior fb') -> fb' (us, ts)
 
 memoB :: Behavior a -> Behavior a
-memoB (Behavior fb) = Behavior (memo fb)
+memoB (Behavior fb) = Behavior (memo1 fb)
 
 Behavior fb `switch` Event fe
   = memoB $ Behavior (\uts@(us, ts) -> loop us ts (fe uts) (fb uts))

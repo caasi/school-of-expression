@@ -6,6 +6,7 @@ import SimpleGraphics
 import Draw
 import Picture
 import Animation
+import qualified ReactiveMain as R
 
 -- chapter 3
 
@@ -178,5 +179,7 @@ listMain (n : ns) = do
       animateB "kaleido1" kaleido1
     "kaleido2" ->
       animateB "kaleido2" kaleido2
+    "paddleball" ->
+      R.main
     _ -> return ()
   listMain ns
